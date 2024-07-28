@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Belajar Vue CDN</title>
+    <!-- <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script> -->
+  </head>
+  <body>
+    <div id="app">
+      <div>{{message}}</div>
+
+      <div v-text="message1"></div>
+      <div v-text="message2"></div>
+      <div v-text="message4">ini adalah text yang akan direplace</div>
+      <br />
+      <div v-html="message3"></div>
+      <div v-html="message5"></div>
+    </div>
+
+    //aturan dari ES Module Build
+    <script type="module">
+      import { createApp } from "https://unpkg.com/vue@3/dist/vue.esm-browser.js"; // kita manggil / import function createapp dari vue
+
+      createApp({
+        data() {
+          return {
+            message: "Hello World",
+            message1: "Hello World 1",
+            message2: "<strong>Hello World 2</strong> ",
+            message3: "<strong>Hello World 3</strong> ",
+            message4: "<strong>ini text yang mereplace</strong> ",
+            message5: "<strong>ini text yang mereplace</strong> ",
+          };
+        },
+      }).mount("#app");
+    </script>
+  </body>
+</html>
